@@ -20,5 +20,5 @@ export const googleCallbackHandler = async (req, res) => {
   res
     .cookie("accessToken", accessToken, { httpOnly: true, secure: false }) // For local dev, secure: false
     .cookie("refreshToken", refreshToken, { httpOnly: true, secure: false })
-    .redirect(process.env.FRONTEND_URL || "http://localhost:5500"); // Adjust to your HTML/test page
+    .redirect(process.env.FRONTEND_URL || "http://localhost:5173"); // Adjust to your HTML/test page
 };
