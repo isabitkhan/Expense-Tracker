@@ -39,6 +39,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import passport from "passport";
 import { errorHandler } from "./middleware/errorHandler.js";
+import cors from "cors";
 
 import "./db/passport.js";
 
@@ -47,6 +48,13 @@ const app = express();
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// const corsOptions = {
+//   origin: ["http://localhost:5173", process.env.FRONTEND_URL],
+//   credentials: true, // Important if you're using cookies or sessions
+// };
+
+app.use(cors());
 
 // session must be set before passport
 app.use(
