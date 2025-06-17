@@ -16,7 +16,7 @@ connectDB()
       const collection = mongoose.connection.db.collection("users");
 
       const indexes = await collection.indexes();
-      const hasGoogleIdIndex = indexes.some(idx => idx.name === "googleId_1");
+      const hasGoogleIdIndex = indexes.some((idx) => idx.name === "googleId_1");
 
       if (hasGoogleIdIndex) {
         await collection.dropIndex("googleId_1");
@@ -34,7 +34,9 @@ connectDB()
     } catch (err) {
       console.error("❌ Failed to update googleId index:", err.message);
     }
-
+    app.get("/", (req, res) => {
+      res.send("API is Working");
+    });
     app.listen(process.env.PORT || 8000, () =>
       console.log(`🚀 Server is running on port ${process.env.PORT || 8000}`)
     );
