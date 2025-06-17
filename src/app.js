@@ -62,7 +62,12 @@ app.use(passport.session());
 import userRouter from "./routes/user.routes.js";
 import transactionRouter from "./routes/transactions.routes.js";
 import authRouter from "./routes/auth.routes.js";
-
+app.get("/api/v1", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "API is Working",
+  });
+});
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/transactions", transactionRouter);
 app.use("/api/v1/auth", authRouter); // ✅ Google Auth routes
