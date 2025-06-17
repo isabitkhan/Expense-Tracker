@@ -62,7 +62,7 @@ app.use(passport.session());
 import userRouter from "./routes/user.routes.js";
 import transactionRouter from "./routes/transactions.routes.js";
 import authRouter from "./routes/auth.routes.js";
-app.get("/api/v1", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
     message: "API is Working",
