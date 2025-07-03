@@ -25,8 +25,8 @@ const generateAccessAndRefreshTokens = async (userId) => {
 const generateOTP = () => crypto.randomInt(100000, 999999).toString();
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-  if ([email, password].some((field) => field?.trim() === "")) {
+  const { name, email, password } = req.body;
+  if ([email, password, name].some((field) => field?.trim() === "")) {
     throw new ApiError(400, "All fields are required");
   }
 
@@ -38,6 +38,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
   const user = await User.create({
+    name,
     email,
     password,
     otp,

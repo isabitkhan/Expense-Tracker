@@ -26,6 +26,10 @@ import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
@@ -47,18 +51,32 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String, // for profile image URL from Google
     },
-    otp: { type: String },
-    otpExpiry: { type: Date },
-    isVerified: { type: Boolean, default: false },
+    otp: {
+      type: String,
+    },
+    otpExpiry: {
+      type: Date,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
     refreshToken: {
       type: String,
     },
-    resetPasswordToken: { type: String },
-    resetPasswordExpiry: { type: Date },
+    resetPasswordToken: {
+      type: String,
+    },
+    resetPasswordExpiry: {
+      type: Date,
+    },
+    is_Subscribed: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
-
 
 // userSchema.pre("save", async function (next) {
 //   if (!this.isModified("password")) return next(); // check if passowrd is modified or not if modified then it will hash the password.
