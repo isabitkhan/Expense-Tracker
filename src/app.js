@@ -83,4 +83,4 @@ app.use("/api/v1/subscription", subscriptionRoute);
 
 app.use(errorHandler);
 
-export { app };
+export default app;
