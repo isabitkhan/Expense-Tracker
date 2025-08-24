@@ -35,8 +35,8 @@ connectDB()
       console.error("❌ Failed to update googleId index:", err.message);
     }
 
-    app.listen(process.env.PORT || 8000, () =>
-      console.log(`🚀 Server is running on port ${process.env.PORT || 8000}`)
+    // app.listen(process.env.PORT || 8000, () =>
+    //   console.log(`🚀 Server is running on port ${process.env.PORT || 8000}`)
     );
   })
   .catch((error) => console.log(`❌ MongoDB connection failed!`, error));
